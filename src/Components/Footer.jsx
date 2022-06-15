@@ -5,7 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <Box h='25.5rem' >
+    <Box h='25.5rem' mt='5rem' >
         <Box  ml='8rem' mt='-0.8rem' position='absolute' bg='#0088cc' p='0.4rem'>
             <Text color='white'>Spareshub</Text>
         </Box>
@@ -13,7 +13,7 @@ const Footer = () => {
             <Box w='16rem' >
                 <Stack align={'flex-start'}>
                     <Link href={'#'}>About us</Link>
-                    <Link href={'#'}>Contact us</Link>
+                    <Link href={'/contact'}>Contact us!</Link>
                     <Link href={'#'}>Call us - <PhoneIcon /> 9307901458</Link>
                     <Link href={'#'}>Whatsapp us - <Icon as={FaWhatsapp} /> 9307901458</Link>
                     <Link href={'#'}>Email us - <EmailIcon /> care@spareshub.com</Link>

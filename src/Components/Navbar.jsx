@@ -1,8 +1,9 @@
-import { Box, Text, Button, HStack, Input, InputRightElement, InputGroup } from '@chakra-ui/react';
+import { Box, Text, Button, HStack, Input, InputRightElement, InputGroup, Link } from '@chakra-ui/react';
 import React from 'react';
 import { PhoneIcon, EmailIcon, Icon, SearchIcon } from '@chakra-ui/icons';
 import { BsCartFill } from 'react-icons/bs'
 import { FaWhatsapp } from 'react-icons/fa';
+import { Link as RouterLink } from 'react-router-dom';
 
 // The default icon 
 
@@ -12,20 +13,28 @@ const Navbar = () => {
         <Box display='flex' gap='1rem' justifyContent='flex-end' p='0.5rem' pr='5rem' backgroundColor='#f0f0ed' borderTop='3px solid #0088cc' fontSize='11px'>
             <Text>WELCOME AT SPARESHUB.COM!</Text>
             <HStack gap='1rem'>
-                <Button colorScheme='teal' variant='link' size='xs'>
-                    CONTACT US
-                </Button>
-                <Button colorScheme='teal' variant='link' size='xs'>
-                    SIGN IN
-                </Button>
-                <Button colorScheme='teal' variant='link' size='xs'>
-                    CREATE AN ACCOUNT
-                </Button>
+                <Link as={RouterLink} to='/contact'>
+                    <Button colorScheme='teal' variant='link' size='xs'>
+                        CONTACT US
+                    </Button>
+                </Link>
+                <Link as={RouterLink} to='/login'>
+                    <Button colorScheme='teal' variant='link' size='xs'>
+                        SIGN IN
+                    </Button>
+                </Link>
+                <Link as={RouterLink} to='/signup'>
+                    <Button colorScheme='teal' variant='link' size='xs'>
+                        CREATE AN ACCOUNT
+                    </Button>
+                </Link>
             </HStack>
         </Box>
-        <Box display='flex' justifyContent='space-between' pl='20px' pr='20px' alignItems='center' m='0.75rem'>
+        <Box display='flex' justifyContent='space-between' pl='20px' pr='20px' alignItems='center' m='0.75rem' mb='1rem' mt='1rem'>
                 <Box display='flex' w='55%' justifyContent='space-between' alignItems='center'>
-                    <Box><img src="https://spareshub.com/pub/media/logo/stores/1/200x50xlogo.png.pagespeed.ic.3_mBb67eog.webp" alt="spareshub.com" /></Box>
+                    <Link as={RouterLink} to='/' >
+                        <Box><img src="https://spareshub.com/pub/media/logo/stores/1/200x50xlogo.png.pagespeed.ic.3_mBb67eog.webp" alt="spareshub.com" /></Box>
+                    </Link>
                     <Box borderRadius='50%'>
                         <InputGroup size='md' w='30rem'>
                             <Input placeholder='Search entire store here...' />
