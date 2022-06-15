@@ -1,4 +1,4 @@
-import { Box, Text, Button, HStack, Input, InputRightElement, InputGroup } from '@chakra-ui/react'
+import { Box, Text, Button, HStack, Input, InputRightElement, InputGroup } from '@chakra-ui/react';
 import React from 'react';
 import { PhoneIcon, EmailIcon, Icon, SearchIcon } from '@chakra-ui/icons';
 import { BsCartFill } from 'react-icons/bs'
@@ -9,16 +9,16 @@ import { FaWhatsapp } from 'react-icons/fa';
 const Navbar = () => {
   return (
     <Box mb='4rem'>
-        <Box display='flex' gap='1rem' justifyContent='flex-end' p='0.35rem' pr='5rem' backgroundColor='#f0f0ed' borderTop='3px solid #0088cc'>
+        <Box display='flex' gap='1rem' justifyContent='flex-end' p='0.5rem' pr='5rem' backgroundColor='#f0f0ed' borderTop='3px solid #0088cc' fontSize='11px'>
             <Text>WELCOME AT SPARESHUB.COM!</Text>
-            <HStack gap='0.5rem'>
-                <Button colorScheme='teal' variant='link'>
+            <HStack gap='1rem'>
+                <Button colorScheme='teal' variant='link' size='xs'>
                     CONTACT US
                 </Button>
-                <Button colorScheme='teal' variant='link'>
+                <Button colorScheme='teal' variant='link' size='xs'>
                     SIGN IN
                 </Button>
-                <Button colorScheme='teal' variant='link'>
+                <Button colorScheme='teal' variant='link' size='xs'>
                     CREATE AN ACCOUNT
                 </Button>
             </HStack>
@@ -28,7 +28,7 @@ const Navbar = () => {
                     <Box><img src="https://spareshub.com/pub/media/logo/stores/1/200x50xlogo.png.pagespeed.ic.3_mBb67eog.webp" alt="spareshub.com" /></Box>
                     <Box borderRadius='50%'>
                         <InputGroup size='md' w='30rem'>
-                            <Input placeholder='mysite' />
+                            <Input placeholder='Search entire store here...' />
                             <InputRightElement width='3rem' mr='0.25rem'>
                                 <Button h='2rem'><SearchIcon /></Button>
                             </InputRightElement>
