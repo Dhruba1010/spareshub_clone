@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Heading,  Text, Avatar, Grid } from '@chakra-ui/react';
+import ProductCard from '../Components/ProductCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProduct } from '../Redux/Products/action';
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const products = useSelector(store => store.productReducer.data);
+
+  useEffect(() => {
+    dispatch(getProduct());
+  },[dispatch])
+
   return (
     <Box mt='5rem'>
       <Box w='97%' m='auto'>
+        
         <img src="https://spareshub.com/pub/media/wysiwyg/xslider-7.jpg.pagespeed.ic.BAKcTOJCz8.webp" alt="logo1" />
         {/* <img src="https://spareshub.com/pub/media/wysiwyg/xslider-1_1_.jpg.pagespeed.ic.CbiR6hPmV9.webp" alt="logo2" />
         <img src="https://spareshub.com/pub/media/wysiwyg/xslider-2.jpg.pagespeed.ic.wD4yRqPU7d.webp" alt="logo3" />
@@ -59,7 +70,13 @@ const Home = () => {
         <Text fontSize='16px' fontWeight='800' color='#777777'>
           PRODUCT_LIST
         </Text>
-        <img width='100%' src="https://spareshub.com/pub/media/catalog/product/placeholder/default/xno_image_3.png.pagespeed.ic.CL0sy0K3dL.webp" alt="p1" />
+        <Grid templateColumns='repeat(5, 1fr)' gap={6}>
+          {products?.map(p => {
+            return (
+              <ProductCard key={p.id} {...p} />
+            ) 
+          })}
+        </Grid>
       </Box>
       <Box mt='0.5rem'>
         <Box ml='1.5rem'>

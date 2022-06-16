@@ -5,13 +5,22 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
+import  axios  from 'axios';
+import { Provider } from 'react-redux';
+import { store } from './Redux/store';
+
+
+axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ChakraProvider>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </ChakraProvider>
     </BrowserRouter>
   </React.StrictMode>
