@@ -3,6 +3,7 @@ import { Box, Heading,  Text, Avatar, Grid } from '@chakra-ui/react';
 import ProductCard from '../Components/ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProduct } from '../Redux/Products/action';
+// import { Link as RouterLink } from 'react-router-dom';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,8 @@ const Home = () => {
   useEffect(() => {
     dispatch(getProduct());
   },[dispatch])
+
+  
 
   return (
     <Box mt='5rem'>
@@ -70,13 +73,15 @@ const Home = () => {
         <Text fontSize='16px' fontWeight='800' color='#777777'>
           PRODUCT_LIST
         </Text>
-        <Grid templateColumns='repeat(5, 1fr)' gap={6}>
-          {products?.map(p => {
-            return (
-              <ProductCard key={p.id} {...p} />
-            ) 
-          })}
-        </Grid>
+        
+          <Grid templateColumns='repeat(5, 1fr)' gap={6}>
+              {products?.map(p => {
+                return (
+                    <ProductCard key={p.id} {...p} />
+                ) 
+              })}
+          </Grid>
+        
       </Box>
       <Box mt='0.5rem'>
         <Box ml='1.5rem'>

@@ -16,6 +16,8 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 
 const ProductCard = ({name, image, rating, price}) => {
+
+  
   return (
     <Center >
       <Box

@@ -4,6 +4,7 @@ import { PhoneIcon, EmailIcon, Icon, SearchIcon } from '@chakra-ui/icons';
 import { BsCartFill } from 'react-icons/bs'
 import { FaWhatsapp } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
+import CartCounter from './CartCounter';
 
 // The default icon 
 
@@ -62,9 +63,12 @@ const Navbar = () => {
                             <Text color='#0088cc'>care@spareshub.com</Text>
                         </HStack>
                     </Box>
-                    <Box >
-                        <Icon as={BsCartFill} w={9} h={9} />
-                    </Box>
+                    <Link as={RouterLink} to='/cart' >
+                        <Box position='relative'>
+                            <CartCounter />
+                            <Icon as={BsCartFill} w={9} h={9} color='#0088cc' />
+                        </Box>
+                    </Link>
                 </Box>
         </Box>
         <Box w='98%' bg='#f0f0ed' m='auto'>

@@ -3,6 +3,7 @@ import { Box, Button, Center, Checkbox, FormControl, FormLabel, Input, Stack, Te
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 
+
 const SignUp = () => {
   return (
     <Box>
@@ -27,52 +28,52 @@ const SignUp = () => {
             p={8}
             w='100%'
             >
-                <Box w='100%' display='flex' justifyContent='space-between'>
-                    <Box w='45%'>
-                        <Text color='#0088cc' fontSize='18px' fontWeight='400' mb='1rem'>
-                            PERSONAL INFORMATION
-                        </Text>
-                        <FormControl id="first_name" isRequired>
-                            <FormLabel>First Name</FormLabel>
-                            <Input type="text" />
-                        </FormControl>
-                        <FormControl id="last_name" isRequired>
-                            <FormLabel>Last Name</FormLabel>
-                            <Input type="text" />
-                        </FormControl>
-                        <Stack
-                            direction={{ base: 'column', sm: 'row' }}
-                            align={'start'}>
-                            <Checkbox>Sign Up for Newsletter</Checkbox>
-                        </Stack>
+                    <Box w='100%' display='flex' justifyContent='space-between'>
+                        <Box w='45%'>
+                            <Text color='#0088cc' fontSize='18px' fontWeight='400' mb='1rem'>
+                                PERSONAL INFORMATION
+                            </Text>
+                            <FormControl id="first_name" isRequired>
+                                <FormLabel>First Name</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                            <FormControl id="last_name" >
+                                <FormLabel>Last Name</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                            <Stack
+                                direction={{ base: 'column', sm: 'row' }}
+                                align={'start'}>
+                                <Checkbox>Sign Up for Newsletter</Checkbox>
+                            </Stack>
+                        </Box>
+                        <Box w='45%'>
+                            <Text color='#0088cc' fontSize='18px' fontWeight='400' mb='1rem'>
+                                SIGN-IN INFORMATION
+                            </Text>
+                            <FormControl id="email" isRequired>
+                                <FormLabel>Email</FormLabel>
+                                <Input type="email"  />
+                            </FormControl>
+                            <FormControl id="password" isRequired>
+                                <FormLabel>Password</FormLabel>
+                                <Input type="password"  />
+                            </FormControl>
+                            <FormControl id="c_password" isRequired>
+                                <FormLabel>Confirm Password</FormLabel>
+                                <Input type="password" />
+                            </FormControl>
+                        </Box>
                     </Box>
-                    <Box w='45%'>
-                        <Text color='#0088cc' fontSize='18px' fontWeight='400' mb='1rem'>
-                            SIGN-IN INFORMATION
-                        </Text>
-                        <FormControl id="email" isRequired>
-                            <FormLabel>Email</FormLabel>
-                            <Input type="email" />
-                        </FormControl>
-                        <FormControl id="password" isRequired>
-                            <FormLabel>Password</FormLabel>
-                            <Input type="password" />
-                        </FormControl>
-                        <FormControl id="c_password" isRequired>
-                            <FormLabel>Confirm Password</FormLabel>
-                            <Input type="password" />
-                        </FormControl>
-                    </Box>
-                </Box>
-                <Button
-                    bg={'blue.400'}
-                    color={'white'}
-                    mt='2rem'
-                    _hover={{
-                    bg: 'blue.500',
-                    }}>
-                    Create an Account
-                </Button>
+                    <Button
+                        bg={'blue.400'}
+                        color={'white'}
+                        mt='2rem'
+                        _hover={{
+                        bg: 'blue.500',
+                        }}>
+                        Create an Account
+                    </Button>
             </Box>
         </Box>
     </Box>

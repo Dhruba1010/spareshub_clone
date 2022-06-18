@@ -3,49 +3,48 @@ import * as types from './actionTypes';
 
 const initState = {
     isLoading: false,
-    error: '',
-    data: [],
-    curProduct:{}
+    error:'',
+    cart: [],
 }
 
-export const productReducer = (state=initState, action) => {
+export const cartReducer = (state=initState, action) => {
     switch(action.type) {
-        case types.GET_PRODUCT_REQUEST:
+        case types.ADD_PRODUCT_CART_REQUEST:
             return {
                 ...state,
                 isLoading: true,
             }
 
-        case types.GET_PRODUCT_SUCCESS:
+        case types.ADD_PRODUCT_CART_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                data: action.payload,
+                cart: [...state.data, action.payload]
             }
 
-        case types.GET_PRODUCT_FAILURE:
+        case types.ADD_PRODUCT_CART_FAILURE:
             return {
                 ...state,
-                error: action.payload,
+                error: action.payload
             }
 
-        case types.GET_SINGLE_PRODUCT_REQUEST:
+        case types.FETCH_CART_REQUEST:
             return {
                 ...state,
                 isLoading: true,
             }
 
-        case types.GET_SINGLE_PRODUCT_SUCCESS:
+        case types.FETCH_CART_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                curProduct: action.payload,
+                cart: [...action.payload]
             }
 
-        case types.GET_SINGLE_PRODUCT_FAILURE:
+        case types.FETCH_CART_FAILURE:
             return {
                 ...state,
-                error: action.payload,
+                error: action.payload
             }
 
         default:

@@ -58,7 +58,7 @@ export const getSingleProductFailure = (payload) => {
     }
 }
 
-export const getSingleProduct = ({id}) => (dispatch) => {
+export const getSingleProduct = (id) => (dispatch) => {
     dispatch(getSingleProductRequest());
     Axios.get(`/products/${id}`)
     .then(r => {
