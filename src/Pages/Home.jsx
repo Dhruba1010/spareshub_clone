@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Box, Heading,  Text, Avatar, Grid } from '@chakra-ui/react';
+import { Box, Heading,  Text, Avatar, Grid, Link } from '@chakra-ui/react';
 import ProductCard from '../Components/ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProduct } from '../Redux/Products/action';
-// import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -77,7 +77,9 @@ const Home = () => {
           <Grid templateColumns='repeat(5, 1fr)' gap={6}>
               {products?.map(p => {
                 return (
-                    <ProductCard key={p.id} {...p} />
+                  <Link as={RouterLink} to={`/product/${p.id}`} key={p.id}>
+                    <ProductCard  {...p} />
+                  </Link>
                 ) 
               })}
           </Grid>

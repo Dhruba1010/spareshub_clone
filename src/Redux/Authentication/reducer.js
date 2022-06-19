@@ -32,6 +32,14 @@ export const authReducer = (state=initState, action) => {
                 error: action.payload
             }
 
+        case types.SIGNOUT_SUCCESS:
+            return {
+                ...state,
+                isLoading:false,
+                auth:false,
+                token: ''
+            }
+
         default:
             return state;
     }

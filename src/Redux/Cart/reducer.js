@@ -4,7 +4,7 @@ import * as types from './actionTypes';
 const initState = {
     isLoading: false,
     error:'',
-    cart: [],
+    cart: []
 }
 
 export const cartReducer = (state=initState, action) => {
@@ -38,7 +38,7 @@ export const cartReducer = (state=initState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                cart: [...action.payload]
+                cart: [...action.payload],
             }
 
         case types.FETCH_CART_FAILURE:

@@ -8,6 +8,7 @@ import { removeProductFromCart } from '../Redux/Cart/action'
 const Cart = () => {
     const cartPro = useSelector(store => store.cartReducer.cart);
     const dispatch = useDispatch();
+    
 
     const removePro =(id) => {
         dispatch(removeProductFromCart(id))
@@ -41,11 +42,11 @@ const Cart = () => {
             </Box>
             <Box display='flex' justifyContent='space-between' p='0 2rem' borderBottom='1px solid #777777' pb='5px'>
                 <Text fontSize='14px' fontWeight='400' p='6px 0'>Subtotal</Text>
-                <Text fontSize='14px' fontWeight='400'>₹450</Text>
+                <Text fontSize='14px' fontWeight='400'>₹1466</Text>
             </Box>
             <Box mb='1rem' mt='0.5rem' display='flex' justifyContent='space-between' p='0 2rem'>
                 <Text fontSize='20px' fontWeight='600' color='#777777'>Order Total</Text>
-                <Text fontSize='20px' fontWeight='600'>₹450</Text>
+                <Text fontSize='20px' fontWeight='600'>₹1466</Text>
             </Box>
             <Box w='90%' m='auto' mb='0.75rem'>
                 <Button

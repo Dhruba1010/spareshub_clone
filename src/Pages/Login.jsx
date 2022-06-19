@@ -1,16 +1,19 @@
 import { Box, Button, Center, Checkbox, FormControl, FormLabel, Input, Link, Stack, Text, useColorModeValue } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signUpFunc } from '../Redux/Authentication/action';
-
+import { useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [userEmail, setUserEmail] = useState('');
     const [userPass, setUserPass] = useState('');
 
     const dispatch = useDispatch();
+    const location = useLocation();
+    const authStatus = useSelector(store => store.authReducer.auth);
+    const navigate = useNavigate();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -19,6 +22,12 @@ const Login = () => {
             email: userEmail, password: userPass 
         }))
     }
+
+    useEffect(() => {
+        if(location?.state?.pathname && authStatus){
+            navigate(location.state?.pathname, {replace:true})
+        }
+    },[location?.state, navigate, authStatus])
 
   return (
     <Box >
@@ -92,7 +101,7 @@ const Login = () => {
                             <Text>Sign in with Facebook</Text>
                         </Center>
                     </Button>
-                    <Button w={'full'} variant={'outline'} leftIcon={<FcGoogle backgroundColor='white'/>} bg='#dd4b39'>
+                    <Button w={'full'} variant={'outline'} leftIcon={<FcGoogle backgroundcolor='white'/>} bg='#dd4b39'>
                         <Center>
                             <Text color='white'>Sign in with Google</Text>
                         </Center>

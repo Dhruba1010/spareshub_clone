@@ -29,7 +29,6 @@ export const getProduct = (payload) => (dispatch) => {
     Axios.get('/products')
     .then(r => {
         dispatch(getProductSuccess(r.data));
-        console.log(r.data);
     })
     .catch(e => {
         dispatch(getProductFailure(e.data));

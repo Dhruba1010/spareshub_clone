@@ -24,17 +24,28 @@ export const signInFailure = (payload) => {
     }
 }
 
+export const signOutSuccess = () =>{
+    return {
+        type: types.SIGNOUT_SUCCESS
+    }
+}
+
 
 
 export const signUpFunc = (payload) => (dispatch) => {
     dispatch(signInRequest());
     Axios.post('/api/login', payload, {baseURL: 'https://reqres.in'})
     .then(r => {
-        console.log(r)
         dispatch(signInSuccess(r.data))
+        alert('Successfully Signed In')
     })
     .catch(e => {
-        console.log(e)
         dispatch(signInFailure(e.data));
     })
+}
+
+
+export const signOutFunc = () => (dispatch) => {
+    dispatch(signOutSuccess());
+    alert('Signed Out Successfully')
 }

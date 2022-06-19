@@ -10,7 +10,7 @@ const ContactUs = () => {
   return (
     <Box>
         <Box w='85%' m='auto'>
-            <iframe title='map' style={{border: 0}} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.2110785100344!2d73.7791181500664!3d18.56452018732148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2becddd315555%3A0xf438dbe5a664267e!2sMont%20Vert%20Apex!5e0!3m2!1sen!2sin!4v1591093397867!5m2!1sen!2sin" width="100%" height="300px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            <iframe title='map' style={{border: 0}} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.2110785100344!2d73.7791181500664!3d18.56452018732148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2becddd315555%3A0xf438dbe5a664267e!2sMont%20Vert%20Apex!5e0!3m2!1sen!2sin!4v1591093397867!5m2!1sen!2sin" width="100%" height="300px" frameBorder="0" allowFullScreen="allowfullscreen"></iframe>
         </Box>
         <Box display='flex' justifyContent='space-between' w='80%' ml='8rem'>
             <Box w='25rem'>

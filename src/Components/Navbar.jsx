@@ -5,30 +5,51 @@ import { BsCartFill } from 'react-icons/bs'
 import { FaWhatsapp } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import CartCounter from './CartCounter';
+import { useDispatch, useSelector } from 'react-redux';
+import Profile from './Profile';
+import { signOutFunc } from '../Redux/Authentication/action';
 
 // The default icon 
 
 const Navbar = () => {
+    const auth = useSelector(store => store.authReducer.auth);
+    const dispatch = useDispatch();
+
+    const signOutHandler = () => {
+        dispatch(signOutFunc());
+    }
+
   return (
     <Box mb='4rem'>
         <Box display='flex' gap='1rem' justifyContent='flex-end' p='0.5rem' pr='5rem' backgroundColor='#f0f0ed' borderTop='3px solid #0088cc' fontSize='11px'>
-            <Text>WELCOME AT SPARESHUB.COM!</Text>
+            <Text display='flex' alignItems='center'>WELCOME AT SPARESHUB.COM!</Text>
             <HStack gap='1rem'>
                 <Link as={RouterLink} to='/contact'>
                     <Button colorScheme='teal' variant='link' size='xs'>
                         CONTACT US
                     </Button>
                 </Link>
-                <Link as={RouterLink} to='/login'>
-                    <Button colorScheme='teal' variant='link' size='xs'>
-                        SIGN IN
-                    </Button>
-                </Link>
-                <Link as={RouterLink} to='/signup'>
-                    <Button colorScheme='teal' variant='link' size='xs'>
-                        CREATE AN ACCOUNT
-                    </Button>
-                </Link>
+                {auth ? (
+                    <>
+                        <Profile />
+                        <Button colorScheme='teal' variant='link' size='xs' onClick={signOutHandler} >
+                            Log Out
+                        </Button>
+                    </>
+                ) : (
+                    <>
+                        <Link as={RouterLink} to='/login'>
+                            <Button colorScheme='teal' variant='link' size='xs'>
+                                SIGN IN
+                            </Button>
+                        </Link>
+                        <Link as={RouterLink} to='/signup'>
+                            <Button colorScheme='teal' variant='link' size='xs'>
+                                CREATE AN ACCOUNT
+                            </Button>
+                        </Link>
+                    </>
+                )}
             </HStack>
         </Box>
         <Box display='flex' justifyContent='space-between' pl='20px' pr='20px' alignItems='center' m='0.75rem' mb='1rem' mt='1rem'>
@@ -84,7 +105,7 @@ const Navbar = () => {
             <Button colorScheme='#0088cc' variant='ghost'>
                 Button
             </Button>
-            <Button colorScheme='red' variant='ghost'>
+            <Button colorScheme='#0088cc' variant='ghost'>
                 Button
             </Button>
         </Box>
